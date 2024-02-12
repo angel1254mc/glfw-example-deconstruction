@@ -84,8 +84,9 @@ These are the 6 main functions we'll be looking through to get a better understa
                 - [XChangeProperty(WM_NAME)](https://tronche.com/gui/x/xlib/window-information/XChangeProperty.html)
                 - [XChangeProperty(WM_ICON_NAME)](https://tronche.com/gui/x/xlib/window-information/XChangeProperty.html)
                 - [XFlush()](https://tronche.com/gui/x/xlib/event-handling/XFlush.html)
-            - glfwGetWindowPosX11()
-                - 
-            - glfwGetWindowSizeX11
+            - [glfwGetWindowPosX11()](https://github.com/glfw/glfw/blob/6f1ddf51a130f2dee6ade5fa4d8217e4071124e8/src/x11_window.c#L2153)
+                - [XTranslateCoordinates()](https://github.com/glfw/glfw/blob/6f1ddf51a130f2dee6ade5fa4d8217e4071124e8/src/x11_window.c#L2153)
+            - [glfwGetWindowSizeX11](https://github.com/glfw/glfw/blob/6f1ddf51a130f2dee6ade5fa4d8217e4071124e8/src/x11_window.c#L2191)
+                - (XGetWindowAttributes())[]
         - glfwCreateContextGLX(window, ctxconfig, fbconfig)
 
