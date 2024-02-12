@@ -1,6 +1,7 @@
 # glfwInit()
 ### Function Specification
 [Link to GLFW docs entry](https://www.glfw.org/docs/3.3/group__init.html#ga317aac130a235ab08c6db0834907d85e)
+
 [Link to Function Source](https://github.com/glfw/glfw/blob/1fe98a0d5388435720d380439497630ac0477455/src/init.c#L410)
 
 ### int glfwInit(void)
@@ -73,3 +74,8 @@ GLFWAPI int glfwInit(void)
     return GLFW_TRUE;
 }
 ```
+
+We don't care too much about how the platform is selected, since we are specifically dealing with Linux/X11 Window System. However,
+we do care about how the platform is initialized. The primary function we will be drilling down to is the platform.init() function
+
+the `platform.init` function actually comes from the g`glfwSelectPlatform` function, that calls a function called `connect` on the supported platform (x11 in our case), which uses a series of IFNDEF's to link to `_glfwConnectX11`. Finally, this results in `platform.init` being equal to `_glfwInitX11`
