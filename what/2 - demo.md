@@ -59,3 +59,33 @@ This comment from user GClements from the [Khronos Community Forum](https://comm
 
 These are the 6 main functions we'll be looking through to get a better understanding of how they work.
 
+
+
+- glfwInit()
+    - _glfwInitX11()
+- glfwCreateWindow()
+    - fbconfig, ctxconfig, wndconfig, window
+    - _glfwCreateWindowX11()
+        - _glfwInitGLX()
+        - DefaultVisual()
+        - DefaultDepth()
+        - CreateNativeWindow(window, wndconfig, visual, depth)
+            - XCreateColormap(display, root, visual, AllocNone)
+            - glfwIsVisualTransparentX11()
+            - XCreateWindow(display, root, x, y, w, h, etc...)
+            - XSaveContext(display, handle, context, window)
+            - set atoms, wm details and hints, PID,
+            - glfwCreateInputContextX11(window)
+                - [XCreateIC()](https://www.x.org/releases/X11R7.5/doc/man/man3/XIMOfIC.3.html)
+                - [XGetICValues()](https://linux.die.net/man/3/xgeticvalues)
+                - [XSelectInput()](https://tronche.com/gui/x/xlib/event-handling/XSelectInput.html)
+            - glfwSetWindowTitleX11()
+                - [Xutf8SetWMProperties()](https://linux.die.net/man/3/xutf8setwmproperties)
+                - [XChangeProperty(WM_NAME)](https://tronche.com/gui/x/xlib/window-information/XChangeProperty.html)
+                - [XChangeProperty(WM_ICON_NAME)](https://tronche.com/gui/x/xlib/window-information/XChangeProperty.html)
+                - [XFlush()](https://tronche.com/gui/x/xlib/event-handling/XFlush.html)
+            - glfwGetWindowPosX11()
+                - 
+            - glfwGetWindowSizeX11
+        - glfwCreateContextGLX(window, ctxconfig, fbconfig)
+
